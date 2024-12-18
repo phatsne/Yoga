@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
-
+const bodyParser = require('body-parser');
+const { createPayment } = require('./controllers/payments');
 // packages
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
