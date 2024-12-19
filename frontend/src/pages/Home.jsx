@@ -71,7 +71,7 @@ const Home = () => {
         <React.Fragment>
             {/* background random image */}
             <div>
-                <div className="w-full h-[450px] md:h-[650px] absolute top-0 left-0 opacity-[0.3] overflow-hidden object-cover ">
+                <div className="w-full h-[450px] md:h-[650px] absolute top-0 left-0 overflow-hidden object-cover ">
                     <img src={backgroundImg} alt="Background"className="w-full h-full object-cover"/>
                     <div className="absolute left-0 bottom-0 w-full h-[250px] opacity_layer_bg "></div>
                 </div>
@@ -109,7 +109,7 @@ const Home = () => {
                         initial='hidden'
                         whileInView={'show'}
                         viewport={{ once: false, amount: 0.1 }}
-                        className=' mt-4 w-[90%] text-center text-base lg:text-lg font-bold text-richblack-300'
+                        className=' mt-4 w-[90%] text-center text-base lg:text-lg font-bold text-richblack-400'
                     >
                         Tham gia khóa học Yoga trực tuyến để cải thiện sức khỏe, giảm căng thẳng, 
                         và tìm lại sự cân bằng trong cuộc sống, với các bài học dễ dàng theo dõi
