@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from './pages/CourseDetails';
 import Catalog from './pages/Catalog';
+import Bmi from './pages/Bmi'
  
 import Navbar from "./components/common/Navbar"
 
@@ -92,6 +93,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
+        <Route path="/bmi" element={<Bmi />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
