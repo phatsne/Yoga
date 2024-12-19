@@ -1,17 +1,17 @@
 export const NavbarLinks = [
   {
-    title: "Home",
+    title: "Trang chủ ",
     path: "/",
   },
   {
-    title: "Catalog",   
+    title: "Catalog",
   },
   {
-    title: "About Us",
+    title: "Về Chúng tôi",
     path: "/about",
   },
   {
-    title: "Contact Us",
+    title: "Liên hệ với chúng tôi",
     path: "/contact",
   },
 ];

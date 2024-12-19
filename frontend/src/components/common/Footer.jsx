@@ -3,26 +3,23 @@ import { FooterLink2 } from "../../../data/footer-links";
 import { Link } from "react-router-dom";
 import { ImGithub, ImLinkedin2 } from "react-icons/im";
 
-
 // Images
-import StudyNotionLogo from "../../assets/Logo/Logo-Full-Light.png";
+// import StudyNotionLogo from "../../assets/Logo/Logo-Full-Light.png";
 
 // footer data
-const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
-const Resources = [
-  "Articles",
-  "Blog",
-  "Chart Sheet",
-  "Code challenges",
-  "Docs",
-  "Projects",
-  "Videos",
-  "Workspaces",
-];
-const Plans = ["Paid memberships", "For students", "Business solutions"];
-const Community = ["Forums", "Chapters", "Events"];
-
-
+// const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
+// const Resources = [
+//   "Articles",
+//   "Blog",
+//   "Chart Sheet",
+//   "Code challenges",
+//   "Docs",
+//   "Projects",
+//   "Videos",
+//   "Workspaces",
+// ];
+// const Plans = ["Paid memberships", "For students", "Business solutions"];
+// const Community = ["Forums", "Chapters", "Events"];
 
 const Footer = () => {
   return (
@@ -33,10 +30,13 @@ const Footer = () => {
           {/* Section 1 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
             <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-              <img src={StudyNotionLogo} alt="" className="object-contain" />
-              <h1 className="text-richblack-50 font-semibold text-[16px]">Company</h1>
+              <p style={{ fontFamily: "'Pacifico', cursive", fontSize: "1.5rem", color: "white"}}>
+                HeathyLife
+              </p>
+              <h1 className="text-richblack-50 font-semibold text-[16px]">Thông tin liên quan</h1>
               <div className="flex flex-col gap-2">
-                {["About", "Careers", "Affiliates"].map((ele, i) => {
+                {/* {["về chúng tôi", "Careers", "Affiliates"].map((ele, i) => { */}
+                {["về chúng tôi"].map((ele, i) => {  
                   return (
                     <div
                       key={i}
@@ -61,7 +61,7 @@ const Footer = () => {
               <h1 className="text-richblack-50 font-semibold text-[16px]">Resources</h1>
 
               <div className="flex flex-col gap-2 mt-2">
-                {Resources.map((ele, index) => {
+                {/* {Resources.map((ele, index) => {
                   return (
                     <div
                       key={index}
@@ -72,14 +72,14 @@ const Footer = () => {
                       </Link>
                     </div>
                   );
-                })}
+                })} */}
               </div>
 
               <h1 className="text-richblack-50 font-semibold text-[16px] mt-7">
                 Support
               </h1>
               <div className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200 mt-2">
-                <Link to={"/help-center"}>Help Center</Link>
+                <Link to={"/help-center"}>Hỗ trợ</Link>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ const Footer = () => {
               </h1>
 
               <div className="flex flex-col gap-2 mt-2">
-                {Plans.map((ele, index) => {
+                {/* {Plans.map((ele, index) => {
                   return (
                     <div
                       key={index}
@@ -100,14 +100,14 @@ const Footer = () => {
                       </Link>
                     </div>
                   );
-                })}
+                })} */}
               </div>
               <h1 className="text-richblack-50 font-semibold text-[16px] mt-7">
                 Community
               </h1>
 
               <div className="flex flex-col gap-2 mt-2">
-                {Community.map((ele, index) => {
+                {/* {Community.map((ele, index) => {
                   return (
                     <div
                       key={index}
@@ -118,7 +118,7 @@ const Footer = () => {
                       </Link>
                     </div>
                   );
-                })}
+                })} */}
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ const Footer = () => {
 
           {/* Section 2 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3">
-            {FooterLink2.map((ele, i) => {
+            {/* {FooterLink2.map((ele, i) => {
               return (
                 <div key={i} className="w-[35%] lg:w-[30%] mb-7 lg:pl-0">
                   <h1 className="text-richblack-50 font-semibold text-[16px]">
@@ -146,7 +146,7 @@ const Footer = () => {
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
       </div>
@@ -157,7 +157,7 @@ const Footer = () => {
         {/* Section 1 */}
         <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
           <div className="flex ">
-            {BottomFooter.map((ele, ind) => {
+            {/* {BottomFooter.map((ele, ind) => {
               return (
                 <div
                   key={ind}
@@ -169,19 +169,18 @@ const Footer = () => {
                   </Link>
                 </div>
               );
-            })}
+            })} */}
           </div>
 
           <div className="text-center flex flex-col sm:flex-row ">
-            <div className="flex ">
-              <span> Made with ❤️</span>
+            <div>
+              <span> Made with </span>
 
-              <Link to='https://github.com/Aniruddha-Gade' target="__blank" className="text-white hover:underline mr-1"
-              >
-                Aniruddha Gade
+              <Link to='https://github.com/Aniruddha-Gade' target="__blank" className="text-white hover:underline mr-1">
+                Minh Tâm
               </Link>
             </div>
-            <span> © 2023 Studynotion</span>
+            <span></span>
           </div>
 
           <div className="flex items-center">
