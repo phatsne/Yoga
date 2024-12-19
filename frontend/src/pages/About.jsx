@@ -1,18 +1,19 @@
 import React from "react";
 
-import FoundingStory from "../assets/Images/CEO_MinhTam.jpg";
+import FoundingStory from "../assets/Images/CEO.jpg";
 import BannerImage1 from "../assets/Images/yoga-co-ban.jpg";
 import BannerImage2 from "../assets/Images/yoga-trung-binh.jpg";
 import BannerImage3 from "../assets/Images/yoga-kho.jpg";
 
 import Footer from "../components/common/Footer";
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection";
+import { Box } from "@mui/material";
 // import LearningGrid from "../components/core/AboutPage/LearningGrid";
 import Quote from "../components/core/AboutPage/Quote";
 import StatsComponenet from "../components/core/AboutPage/Stats";
 import HighlightText from "../components/core/HomePage/HighlightText";
 import Img from "../components/common/Img";
-import ReviewSlider from "../components/common/ReviewSlider";
+// import ReviewSlider from "../components/common/ReviewSlider";
 
 import { motion } from "framer-motion";
 import { fadeIn } from "../components/common/motionFrameVarients";
@@ -83,7 +84,7 @@ const About = () => {
       {/* Founding Story Section */}
       <section className="bg-[#f0fff4]">
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-blue-500">
-          <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
+          <div className="flex flex-col items-center gap-10 lg:flex-row justify-between pt-0.5">
             <motion.div
               variants={fadeIn("right", 0.1)}
               initial="hidden"
@@ -113,10 +114,16 @@ const About = () => {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.1 }}
             >
-              <Img
+              <Box
+                component="img"
                 src={FoundingStory}
                 alt="Câu chuyện thành lập"
-                className="w-1/2 h-auto mx-auto"
+                sx={{
+                  borderRadius: '16px', // Bo góc
+                  width: '50%',         // Thay thế class w-1/2
+                  height: 'auto',       // Thay thế class h-auto
+                  margin: '0 auto',     // Thay thế class mx-auto
+                }}
               />
             </motion.div>
           </div>
