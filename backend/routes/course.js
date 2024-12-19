@@ -13,6 +13,7 @@ const {
     deleteCourse,
     getInstructorCourses,
 
+    
 } = require('../controllers/course')
 
 const { updateCourseProgress } = require('../controllers/courseProgress')
