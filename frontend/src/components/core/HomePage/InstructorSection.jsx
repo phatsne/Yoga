@@ -28,7 +28,7 @@ const InstructorSection = () => {
     
         <div className='lg:w-[50%] flex flex-col'>
           <div className='text-3xl lg:text-4xl font-semobold w-[50%] mb-2'>
-            Đôi Nét Về 
+            <span className="text-[#00796b]">Đôi Nét Về </span>
             <HighlightText text={"Healthy Life"} />
           </div>
 
