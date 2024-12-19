@@ -30,11 +30,11 @@ const ExploreMore = () => {
     <div>
       {/* Explore more section */}
       <div>
-        <div className="text-3xl lg:text-4xl font-semibold text-center my-10">
-          Unlock the
+        <div className="text-black lg:text-4xl font-semibold text-center my-10">
+          Mở khóa tâm hồn của bạn
           <HighlightText text={"Power of Code"} />
           <p className="text-center text-richblack-300 text-base lg:text-lg font-semibold mt-1">
-            Learn to Build Anything You Can Imagine
+            Chọn các khóa học phù hợp với bạn
           </p>
         </div>
       </div>

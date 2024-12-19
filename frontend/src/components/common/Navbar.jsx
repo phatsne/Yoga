@@ -3,7 +3,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { NavbarLinks } from "../../../data/navbar-links"
-import studyNotionLogo from '../../assets/Logo/Logo-Full-Light.png'
+
 import { fetchCourseCategories } from './../../services/operations/courseDetailsAPI';
 
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
@@ -84,12 +84,15 @@ const Navbar = () => {
 
 
     return (
-        <nav className={`z-[10] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 text-white translate-y-0 transition-all ${showNavbar} `}>
+        <nav className="z-[10] flex h-14 w-full items-center justify-center border-b-[1px] text-white transition-all bg-[#90DB90]">
+
              {/* <nav className={` fixed flex items-center justify-center w-full h-16 z-[10] translate-y-0 transition-all text-white ${showNavbar}`}> */}
             <div className='flex w-11/12 max-w-maxContent items-center justify-between '>
                 {/* logo */}
                 <Link to="/">
-                    <img src={studyNotionLogo} width={160} height={42} loading='lazy' />
+                    <p style={{ fontFamily: "'Pacifico', cursive", fontSize: "1.5rem", color: "black"}}>
+                        HeathyLife
+                    </p>
                 </Link>
 
                 {/* Nav Links - visible for only large devices*/}
@@ -105,7 +108,9 @@ const Navbar = () => {
                                                 : "text-richblack-25 rounded-xl p-1 px-3"
                                                 }`}
                                         >
-                                            <p>{link.title}</p>
+                                            <p>
+                                                {link.title}
+                                            </p>
                                             <MdKeyboardArrowDown />
                                             {/* drop down menu */}
                                             <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] 
@@ -130,13 +135,13 @@ const Navbar = () => {
                                                             ))}
                                                         </>
                                                     ) : (
-                                                        <p className="text-center">No Courses Found</p>
+                                                        <p className="text-center">Không tìm thấy khóa học</p>
                                                     )}
                                             </div>
                                         </div>
                                     ) : (
                                         <Link to={link?.path}>
-                                            <p className={`${matchRoute(link?.path) ? "bg-yellow-25 text-black" : "text-richblack-25"} rounded-xl p-1 px-3 `}>
+                                            <p className={`${matchRoute(link?.path) ? "text-black" : "text-richblack-25"} rounded-xl p-1 px-3 `}>
                                                 {link.title}
                                             </p>
                                         </Link>)
@@ -165,11 +170,11 @@ const Navbar = () => {
                     {
                         token === null && (
                             <Link to="/login">
-                                {/* <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md focus:outline-8 outline-yellow-50'> */}
-                                <button className={` px-[12px] py-[8px] text-richblack-100 rounded-md 
-                                 ${matchRoute('/login') ? 'border-[2.5px] border-yellow-50' : 'border border-richblack-700 bg-richblack-800'} `}
+                                {/* <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md focus:out  line-8 outline-yellow-50'> */}
+                                <button className={`px-[12px] py-[8px] text-white rounded-md 
+                                 ${matchRoute('/login') ? 'border-[2.5px] border-[#90DB90]' : 'bg-[#40E0D0]'} `}
                                 >
-                                    Log in
+                                    Đăng nhập
                                 </button>
                             </Link>
                         )
@@ -178,10 +183,10 @@ const Navbar = () => {
                         token === null && (
                             <Link to="/signup">
                                 {/* <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md'> */}
-                                <button className={` px-[12px] py-[8px] text-richblack-100 rounded-md 
-                                 ${matchRoute('/signup') ? 'border-[2.5px] border-yellow-50' : 'border border-richblack-700 bg-richblack-800'} `}
+                                <button className={`px-[12px] py-[8px] text-white rounded-md 
+                                 ${matchRoute('/signup') ? 'border-[2.5px] border-[#90DB90]' : 'bg-[#40E0D0]'} `}
                                 >
-                                    Sign Up
+                                    Đăng Ký
                                 </button>
                             </Link>
                         )

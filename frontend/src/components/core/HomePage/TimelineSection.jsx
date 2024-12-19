@@ -1,103 +1,71 @@
-import React from 'react'
+import React from 'react';
+// import { motion } from 'framer-motion';
+// import { fadeIn } from '../../common/motionFrameVarients';
 
-import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg"
-import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg"
-import Logo3 from "../../../assets/TimeLineLogo/Logo3.svg"
-import Logo4 from "../../../assets/TimeLineLogo/Logo4.svg"
-import timelineImage from '../../../assets/Images/TimelineImage.png'
+import Hero1 from '../../../assets/Images/hero1.jpg';
+import Hero2 from '../../../assets/Images/hero2.jpg';
+import Hero3 from '../../../assets/Images/hero3.jpg';
+// import timelineImage from '../../../assets/Images/TimelineImage.png';
 
-import Img from './../../common/Img';
-
-import { motion } from 'framer-motion'
-import { fadeIn } from '../../common/motionFrameVarients';
-
-
+// import Img from '../../common/Img';
 
 const timeline = [
     {
-        Logo: Logo1,
-        heading: "Leadership",
-        Description: "Fully committed to the success company",
+        image: Hero1,
+        heading: 'Sức Khỏe Là Hạnh Phúc',
+        Description: 'Chúng tôi cam kết mang đến sức khỏe và sự cân bằng cho từng học viên.',
     },
     {
-        Logo: Logo2,
-        heading: "Responsibility",
-        Description: "Students will always be our top priority",
+        image: Hero2,
+        heading: 'Trách Nhiệm Cộng Đồng',
+        Description: 'Luôn đặt lợi ích và sự phát triển của học viên lên hàng đầu.',
     },
     {
-        Logo: Logo3,
-        heading: "Flexibility",
-        Description: "The ability to switch is an important skills",
-    },
-
-    {
-        Logo: Logo4,
-        heading: "Solve the problem",
-        Description: "Code your way to a solution",
+        image: Hero3,
+        heading: 'Linh Hoạt Thời Gian',
+        Description: 'Học mọi lúc, mọi nơi với các khóa học trực tuyến đa dạng.',
     },
 ];
 
 const TimelineSection = () => {
     return (
-        <div>
-            <div className='flex flex-col lg:flex-row gap-15 items-center'>
+        <div className="py-10 bg-gray-50">
+            <div className="text-center mb-8">
+                <h2 className="text-green-600 uppercase text-sm font-semibold">
+                Khóa Học Đề Xuất
+                </h2>
+                <h3 className="text-2xl lg:text-3xl font-bold">
+                Học Ngay Một Khóa Yoga Online Với Chi Phí Thấp Nhất!
+                </h3>
+                <p className="text-gray-600 mt-2">
+                Dưới đây là một số khóa học Yoga phổ biến được nhiều khách hàng yêu thích
+                và đánh giá cao tại <span className="text-green-600 font-semibold">HealthyLife</span>.
+                </p>
+            </div>
 
-                <motion.div
-                    variants={fadeIn('right', 0.1)}
-                    initial='hidden'
-                    whileInView={'show'}
-                    viewport={{ once: false, amount: 0.1 }}
-                    className='w-full lg:w-[45%] flex flex-col gap-5'>
-                    {
-                        timeline.map((element, index) => {
-                            return (
-                                <div className='flex flex-row gap-6' key={index}>
-
-                                    <div className='w-[50px] h-[50px] rounded-full bg-richblue-500 flex justify-center items-center'>
-                                        <img src={element.Logo} />
-                                    </div>
-
-                                    <div>
-                                        <h2 className='font-semibold text-[18px]'>{element.heading}</h2>
-                                        <p className='text-base'>{element.Description}</p>
-                                    </div>
-
-                                </div>
-                            )
-                        })
-                    }
-                </motion.div>
-
-                <motion.div
-                    variants={fadeIn('left', 0.1)}
-                    initial='hidden'
-                    whileInView={'show'}
-                    viewport={{ once: false, amount: 0.1 }}
-                    className='relative shadow-blue-200'>
-
-                    <Img src={timelineImage}
-                        alt="timelineImage"
-                        className='shadow-white object-cover h-fit scale-x-[-1] w-[550px] '
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                {courses.map((course, index) => (
+                <div
+                    key={index}
+                    className="bg-white shadow-md rounded-lg overflow-hidden"
+                >
+                    <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-48 object-cover"
                     />
-
-                    <div className=' absolute bg-caribbeangreen-700 flex flex-row text-white uppercase py-7
-                            left-[50%] translate-x-[-50%] translate-y-[-70%] rounded-3xl'>
-                        <div className='flex flex-row gap-5 items-center border-r border-caribbeangreen-300 px-7'>
-                            <p className='text-2xl lg:text-3xl font-bold'>10</p>
-                            <p className='text-caribbeangreen-300 text-xs lg:text-sm'>Years of Experience</p>
-                        </div>
-
-                        <div className='flex gap-5 items-center px-7'>
-                            <p className='text-2xl lg:text-3xl font-bold'>250</p>
-                            <p className='text-caribbeangreen-300 text-xs lg:text-sm'>TYpe of Courses</p>
-                        </div>
-
+                    <div className="p-5">
+                        <h4 className="text-lg font-semibold mb-2">{course.title}</h4>
+                        <p className="text-gray-600 text-sm mb-4">{course.description}</p>
+                        <button className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">
+                            {course.buttonText}
+                        </button>
                     </div>
-
-                </motion.div>
+                </div>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default TimelineSection
+export default TimelineSection;

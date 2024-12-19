@@ -1,55 +1,112 @@
-import React from 'react'
-import HighlightText from './HighlightText'
-import know_your_progress from "../../../assets/Images/Know_your_progress.png"
-import compare_with_others from "../../../assets/Images/Compare_with_others.png"
-import plan_your_lesson from "../../../assets/Images/Plan_your_lessons.png"
-import CTAButton from "../HomePage/Button"
+import React from 'react';
+import { Container, Grid, Card, CardMedia, CardContent, Typography, Button, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import Hero1 from '../../../assets/Images/hero1.jpg';
+import Hero2 from '../../../assets/Images/hero2.jpg';
+import Hero3 from '../../../assets/Images/hero3.jpg';
 
+const HeroSection = () => {
+    const navigate = useNavigate();
 
-
-const LearningLanguageSection = () => {
     return (
-        <div className='mt-[130px] mb-10'>
-            <div className='flex flex-col gap-5 items-center'>
+        <Container className="my-5">
+            <Box textAlign="center" mb={5}>
+                <Typography
+                    variant="h6"
+                    sx={{
+                        color: "#90EE90",
+                        fontWeight: "bold",
+                        textTransform: "uppercase",
+                        letterSpacing: "2px",
+                        fontSize: "0.9rem",
+                    }}
+                >
+                    Khóa Học Đề Xuất
+                </Typography>
+                <Typography
+                    variant="h4"
+                    sx={{
+                        fontFamily: "'Pacifico', cursive",
+                        fontSize: "2rem",
+                        lineHeight: "1.5",
+                        color: "#333",
+                        textShadow: "1px 1px 3px rgba(0, 0, 0, 0.1)",
+                    }}
+                >
+                    Học Ngay Một Khóa Yoga Online Với Chi Phí Thấp Nhất!
+                </Typography>
+                <Typography
+                    sx={{
+                        maxWidth: "600px",
+                        margin: "0 auto",
+                        color: "#666",
+                        fontSize: "1rem",
+                        lineHeight: "1.8",
+                    }}
+                >
+                    Dưới đây là một số khóa học Yoga phổ biến được nhiều khách hàng yêu thích và đánh giá cao tại{" "}
+                    <a
+                        href="/blog"
+                        style={{
+                            color: "#90EE90",
+                            fontWeight: "bold",
+                            textDecoration: "none",
+                            transition: "color 0.3s ease",
+                        }}
+                        onMouseOver={(e) => (e.target.style.color = "#76c776")}
+                        onMouseOut={(e) => (e.target.style.color = "#90EE90")}
+                    >
+                        HeathyLife
+                    </a>
+                    .
+                </Typography>
+            </Box>
+            <Grid container spacing={4}>
+                {[Hero1, Hero2, Hero3].map((image, index) => (
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Card sx={{ display: "flex", flexDirection: "column", alignItems: "center", p: 2, height: "100%" }}>
+                            <CardMedia
+                                component="img"
+                                alt={`Hero${index + 1}`}
+                                image={image}
+                                sx={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
+                            />
+                            <CardContent sx={{ textAlign: "center", flexGrow: 1 }}>
+                                <Typography variant="h6" gutterBottom>
+                                    {index === 0
+                                        ? "Tập Yoga Cơ Bản Ngay Tại Nhà Với Nguyễn Hiếu"
+                                        : index === 1
+                                        ? "Yoga Giảm Eo, Giảm Mỡ Giữ Dáng Thon Gọn"
+                                        : "Yoga Trẻ Hóa Và Làm Đẹp Cho Khuôn Mặt"}
+                                </Typography>
+                                <Typography variant="body2" sx={{ mb: 2 }}>
+                                    {index === 0
+                                        ? "Khóa học được thiết kế dành cho người mới bắt đầu. Bắt đầu hành trình thay đổi bản thân với những tư thế đơn giản, không gây nguy hiểm nhưng mang lại hiệu quả tuyệt vời."
+                                        : index === 1
+                                        ? "Các tư thế trong khóa học được thiết kế dành riêng cho những bạn muốn đánh tan mỡ bụng, lấy lại vóc dáng. Ngoài ra còn cung cấp các bài tập giúp tạo đường cong hoàn mỹ."
+                                        : "Bạn không có nhiều thời gian chăm sóc sắc đẹp? Đừng lo lắng, vì khóa học này được thiết kế dành cho bạn. Với kĩ thuật đơn giản, an toàn, làn da của bạn sẽ trở nên săn mịn và tràn đầy sức sống."}
+                                </Typography>
+                            </CardContent>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    backgroundColor: "#90EE90",
+                                    color: "#ffffff",
+                                    mt: 2,
+                                    "&:hover": {
+                                        backgroundColor: "#76c776",
+                                    },
+                                }}
+                                onClick={() => navigate("/signup")}
+                            >
+                                Tìm Hiểu Thêm
+                            </Button>
+                        </Card>
+                    </Grid>
+                ))}
+            </Grid>
+        </Container>
+    );
+};
 
-                <div className='text-3xl lg:text-4xl font-semibold text-center'>
-                    Your Swiss Knife for
-                    <HighlightText text={" learning any language"} />
-                </div>
-
-                <div className='lg:text-center text-richblack-600 mx-auto text-base font-medium lg:w-[70%]'>
-                    Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.
-                </div>
-
-                <div className='flex flex-col lg:flex-row items-center justify-center mt-5'>
-                    <img
-                        src={know_your_progress}
-                        alt="KNowYourProgressImage"
-                        className='object-contain lg:-mr-32 '
-                    />
-                    <img
-                        src={compare_with_others}
-                        alt="KNowYourProgressImage"
-                        className='object-contain'
-                    />
-                    <img
-                        src={plan_your_lesson}
-                        alt="KNowYourProgressImage"
-                        className='object-contain lg:-ml-36'
-                    />
-                </div>
-
-                <div className='w-fit'>
-                    <CTAButton active={true} linkto={"/signup"}>
-                        <div>
-                            Learn more
-                        </div>
-                    </CTAButton>
-                </div>
-
-            </div>
-        </div>
-    )
-}
-
-export default LearningLanguageSection
+export default HeroSection;
