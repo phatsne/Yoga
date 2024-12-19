@@ -7,8 +7,8 @@ const querystring = require('querystring');
 
 const mailSender = require('../utils/mailSender');
 const { createVNPayPaymentUrl } = require('../config/vnpay');
-// const { courseEnrollmentEmail } = require('../mail/templates/courseEnrollmentEmail');
-// const { paymentSuccessEmail } = require('../mail/templates/paymentSuccessEmail');
+const { courseEnrollmentEmail } = require('../mail/templates/courseEnrollmentEmail');
+const { paymentSuccessEmail } = require('../mail/templates/paymentSuccessEmail');
 
 const User = require('../models/user');
 const Course = require('../models/course');

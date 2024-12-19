@@ -39,7 +39,7 @@ const courseSchema = new mongoose.Schema({
     },
     tag: {
         type: [String],
-        required: true
+        
     },
     studentsEnrolled: [
         {
