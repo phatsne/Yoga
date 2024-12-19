@@ -250,29 +250,20 @@ const Home = () => {
                                 </CTAButton>
                             </div>
                         </div>
-
-
                         {/* leadership */}
                         {/* <TimelineSection /> */}
-
                         <LearningLanguageSection />
-
                     </div>
-
                 </div>
-
-
                 {/*Section 3 */}
                 <div className='mt-14 w-11/12 w-full mx-auto py-16 max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-[#ebfff7] text-white'>
                     <InstructorSection />
-
                     {/* Reviws from Other Learner */}
                     {/* <h1 className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
                         Reviews from other learners <MdOutlineRateReview className='text-yellow-25' />
                     </h1> */}
                     <ReviewSlider />
                 </div>
-
                 {/*Footer */}
                 <Footer />
             </div >

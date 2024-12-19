@@ -3,20 +3,19 @@ import HighlightText from '../HomePage/HighlightText'
 
 const Quote = () => {
   return (
-    <div className=" text-xl md:text-4xl font-semibold mx-auto py-5 pb-20 text-center text-white">
-        We are passionate about revolutionizing the way we learn. Our
-        innovative platform <HighlightText text={"combines technology"} />,{" "}
-        <span className="bg-gradient-to-b from-[#FF512F] to-[#F09819] text-transparent bg-clip-text font-bold">
+    <div className="text-xl md:text-4xl font-semibold mx-auto py-5 pb-20 text-center">
+        Chúng tôi đam mê mang lại sự thay đổi tích cực qua yoga. Nền tảng của
+        chúng tôi kết hợp công nghệ,{" "}
+        <span>
             {" "}
-            expertise
+            chuyên môn
         </span>
-        , and community to create an
-        
-        <span className="bg-gradient-to-b from-[#E65C00] to-[#F9D423] text-transparent bg-clip-text font-bold">
+        , và cộng đồng để tạo ra một
+        <span>
             {" "}
-            unparalleled educational
-        experience.
+            trải nghiệm yoga độc đáo
         </span> 
+        dành cho bạn.
     </div>
   )
 }

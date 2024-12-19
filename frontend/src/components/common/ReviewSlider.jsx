@@ -17,11 +17,6 @@ import { FaStar } from "react-icons/fa"
 import { apiConnector } from "../../services/apiConnector";
 import { ratingsEndpoints } from "../../services/apis"
 
-
-
-
-
-
 function ReviewSlider() {
   const [reviews, setReviews] = useState(null)
   const truncateWords = 15
