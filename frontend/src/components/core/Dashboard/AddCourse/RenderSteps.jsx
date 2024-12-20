@@ -17,15 +17,15 @@ export default function RenderSteps() {
   const steps = [
     {
       id: 1,
-      title: "Course Information",
+      title: "Thông tin khóa học",
     },
     {
       id: 2,
-      title: "Course Builder",
+      title: "Xây dựng khóa học",
     },
     {
       id: 3,
-      title: "Publish",
+      title: "Đăng khóa học",
     },
   ]
 

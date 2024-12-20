@@ -14,7 +14,7 @@ export default function AddCourse() {
 
       <div className="flex flex-1 flex-col">
         <h1 className="mb-14 text-3xl font-medium text-richblack-5 font-boogaloo text-center lg:text-left">
-          Add Course
+          Thêm khóa học
         </h1>
 
         <div className="flex-1">

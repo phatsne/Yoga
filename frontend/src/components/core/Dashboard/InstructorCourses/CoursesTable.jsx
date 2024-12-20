@@ -72,16 +72,16 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
         <Thead>
           <Tr className="flex gap-x-10 rounded-t-3xl border-b border-b-richblack-800 px-6 py-2">
             <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
-              Courses
+              Khóa học 
             </Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Duration
+              Thời lượng
             </Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Price
+              Giá
             </Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Actions
+              Chỉnh sửa
             </Th>
           </Tr>
         </Thead>
@@ -157,7 +157,7 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
 
                   {/* course duration */}
                   <Td className="text-sm font-medium text-richblack-100">2hr 30min</Td>
-                  <Td className="text-sm font-medium text-richblack-100">₹{course.price}</Td>
+                  <Td className="text-sm font-medium text-richblack-100">{course.price} VNĐ</Td>
 
                   <Td className="text-sm font-medium text-richblack-100 ">
                     {/* Edit button */}

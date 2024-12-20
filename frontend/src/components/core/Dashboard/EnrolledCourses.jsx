@@ -66,9 +66,9 @@ export default function EnrolledCourses() {
         <div className="my-8 text-richblack-5">
           {/* Headings */}
           <div className="flex rounded-t-2xl bg-richblack-800 ">
-            <p className="w-[45%] px-5 py-3">Course Name</p>
-            <p className="w-1/4 px-2 py-3">Duration</p>
-            <p className="flex-1 px-2 py-3">Progress</p>
+            <p className="w-[45%] px-5 py-3">Tên khóa học</p>
+            <p className="w-1/4 px-2 py-3">Thời lượng</p>
+            <p className="flex-1 px-2 py-3">Tiến trình</p>
           </div>
 
 

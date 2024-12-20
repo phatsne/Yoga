@@ -60,7 +60,7 @@ export default function InstructorChart({ courses }) {
             : "text-yellow-400"
             }`}
         >
-          Students
+          Học viên
         </button>
 
         {/* Button to switch to the "income" chart */}

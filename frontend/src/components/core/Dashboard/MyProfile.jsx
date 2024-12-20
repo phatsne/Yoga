@@ -21,7 +21,7 @@ export default function MyProfile() {
 
   return (
     <>
-      <h1 className="mb-14 text-4xl font-medium text-richblack-5 font-boogaloo text-center sm:text-left"> My Profile</h1>
+      <h1 className="mb-14 text-4xl font-medium text-richblack-5 font-boogaloo text-center sm:text-left"> Thông tin người dùng</h1>
 
       <div className="flex items-center justify-between rounded-2xl border-[1px] border-richblack-700 bg-richblack-800 p-8 px-3 sm:px-12">
         <div className="flex items-center gap-x-4">
@@ -50,7 +50,7 @@ export default function MyProfile() {
 
       <div className="my-10 flex flex-col gap-y-10 rounded-2xl border-[1px] border-richblack-700 bg-richblack-800 p-8 px-7 sm:px-12">
         <div className="flex w-full items-center justify-between">
-          <p className="text-lg font-semibold text-richblack-5">About</p>
+          <p className="text-lg font-semibold text-richblack-5">Thông tin thêm về bản thân</p>
           <IconBtn
             text="Edit"
             onclick={() => {
@@ -67,14 +67,14 @@ export default function MyProfile() {
             : "text-richblack-400"
             } text-sm font-medium`}
         >
-          {user?.additionalDetails?.about ?? "Write Something About Yourself"}
+          {user?.additionalDetails?.about ?? "Giới thiệu về bản thân"}
         </p>
       </div>
 
       <div className="my-10 flex flex-col gap-y-10 rounded-2xl border-[1px] border-richblack-700 bg-richblack-800 p-8 px-7 sm:px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">
-            Personal Details
+            Thông tin người dùng
           </p>
           <IconBtn
             text="Edit"
@@ -90,13 +90,13 @@ export default function MyProfile() {
           <div className="flex flex-col gap-y-5">
 
             <div>
-              <p className="mb-2 text-sm text-richblack-600">First Name</p>
+              <p className="mb-2 text-sm text-richblack-600">Tên</p>
               <p className="text-sm font-semibold text-richblack-5 capitalize">
                 {user?.firstName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Account Type</p>
+              <p className="mb-2 text-sm text-richblack-600">Loại tài khoản</p>
               <p className="text-sm font-semibold text-richblack-5 capitalize">
                 {user?.accountType}
               </p>
@@ -108,30 +108,30 @@ export default function MyProfile() {
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Gender</p>
+              <p className="mb-2 text-sm text-richblack-600">Giới tính</p>
               <p className="text-sm font-semibold text-richblack-5">
-                {user?.additionalDetails?.gender ?? "Add Gender"}
+                {user?.additionalDetails?.gender ?? "Thêm giới tính"}
               </p>
             </div>
           </div>
 
           <div className="flex flex-col gap-y-5">
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Last Name</p>
+              <p className="mb-2 text-sm text-richblack-600">Họ</p>
               <p className="text-sm font-semibold text-richblack-5 capitalize">
                 {user?.lastName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
+              <p className="mb-2 text-sm text-richblack-600">Số điện thoại</p>
               <p className="text-sm font-semibold text-richblack-5">
-                {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+                {user?.additionalDetails?.contactNumber ?? "Thêm số điện thoại"}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
+              <p className="mb-2 text-sm text-richblack-600">Ngày sinh</p>
               <p className="text-sm font-semibold text-richblack-5">
-                {formattedDate(user?.additionalDetails?.dateOfBirth) ?? "Add Date Of Birth"}
+                {formattedDate(user?.additionalDetails?.dateOfBirth) ?? "Thêm ngày sinh"}
               </p>
             </div>
           </div>
