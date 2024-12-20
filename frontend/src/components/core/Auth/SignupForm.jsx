@@ -75,12 +75,12 @@ function SignupForm() {
   const tabData = [
     {
       id: 1,
-      tabName: "Student",
+      tabName: "Học viên",
       type: ACCOUNT_TYPE.STUDENT,
     },
     {
       id: 2,
-      tabName: "Instructor",
+      tabName: "Giáo viên",
       type: ACCOUNT_TYPE.INSTRUCTOR,
     },
   ];
@@ -96,7 +96,7 @@ function SignupForm() {
           {/* First Name */}
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-              First Name <sup className="text-pink-200">*</sup>
+              Tên <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -104,7 +104,7 @@ function SignupForm() {
               name="firstName"
               value={firstName}
               onChange={handleOnChange}
-              placeholder="Enter first name"
+              placeholder="Nhập Tên"
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
@@ -115,7 +115,7 @@ function SignupForm() {
           {/* Last Name */}
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-              Last Name <sup className="text-pink-200">*</sup>
+              Họ <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -123,7 +123,7 @@ function SignupForm() {
               name="lastName"
               value={lastName}
               onChange={handleOnChange}
-              placeholder="Enter last name"
+              placeholder="Nhập họ"
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
@@ -135,7 +135,7 @@ function SignupForm() {
         {/* Email Address */}
         <label className="w-full">
           <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-            Email Address <sup className="text-pink-200">*</sup>
+            Địa chỉ Email<sup className="text-pink-200">*</sup>
           </p>
           <input
             required
@@ -156,7 +156,7 @@ function SignupForm() {
           {/* Create Password */}
           <label className="relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-              Create Password <sup className="text-pink-200">*</sup>
+              Mật khẩu <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -164,7 +164,7 @@ function SignupForm() {
               name="password"
               value={password}
               onChange={handleOnChange}
-              placeholder="Enter Password"
+              placeholder="Nhập mật khẩu"
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
@@ -185,7 +185,7 @@ function SignupForm() {
           {/* Confirm Password  */}
           <label className="relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-              Confirm Password <sup className="text-pink-200">*</sup>
+              Xác nhận mật khẩu <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -193,7 +193,7 @@ function SignupForm() {
               name="confirmPassword"
               value={confirmPassword}
               onChange={handleOnChange}
-              placeholder="Confirm Password"
+              placeholder=""
               style={{
                 boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
               }}
@@ -215,9 +215,9 @@ function SignupForm() {
 
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-green-300 py-[8px] px-[12px] font-medium text-richblack-900"
         >
-          Create Account
+          Đăng ký
         </button>
       </form>
     </div>

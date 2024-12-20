@@ -125,6 +125,20 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
+      "green": {
+        5: "#F2FCF5",      // Xanh lá nhạt nhất
+        25: "#D6F5E0",     // Nhạt
+        50: "#BBEFCB",     // Trung bình nhạt
+        100: "#A0E8B7",    // Trung bình
+        200: "#85E1A3",    // Trung bình đậm
+        300: "#6ADB8F",    // Đậm vừa
+        400: "#4FD47A",    // Đậm hơn
+        500: "#35CD66",    // Đậm
+        600: "#2AB852",    // Đậm hơn nữa
+        700: "#1E9D3F",    // Đậm mạnh
+        800: "#13732C",    // Gần đen
+        900: "#0A4718"     // Đậm nhất
+      }
     },
     extend: {
       maxWidth: {

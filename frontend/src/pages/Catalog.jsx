@@ -94,7 +94,7 @@ function Catalog() {
 
             {/* Section 1 */}
             <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-                <div className="section_heading">Courses to get you started</div>
+                <div className="section_heading">Tìm khóa học phù hợp với nhu cầu của bạn</div>
                 <div className="my-4 flex border-b border-b-richblack-600 text-sm">
                     <p
                         className={`px-4 py-2 ${active === 1
@@ -103,7 +103,7 @@ function Catalog() {
                             } cursor-pointer`}
                         onClick={() => setActive(1)}
                     >
-                        Most Populer
+                        Phổ biến 
                     </p>
                     <p
                         className={`px-4 py-2 ${active === 2
@@ -112,7 +112,7 @@ function Catalog() {
                             } cursor-pointer`}
                         onClick={() => setActive(2)}
                     >
-                        New
+                        mới
                     </p>
                 </div>
                 <div>
@@ -125,7 +125,7 @@ function Catalog() {
             {/* Section 2 */}
             <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
                 <div className="section_heading">
-                    Top courses in {catalogPageData?.differentCategory?.name}
+                    Những khóa học nổi bật {catalogPageData?.differentCategory?.name}
                 </div>
                 <div>
                     <Course_Slider
@@ -136,7 +136,7 @@ function Catalog() {
 
             {/* Section 3 */}
             <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-                <div className="section_heading">Frequently Bought</div>
+                <div className="section_heading">Bán chạy</div>
                 <div className="py-8">
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         {catalogPageData?.mostSellingCourses

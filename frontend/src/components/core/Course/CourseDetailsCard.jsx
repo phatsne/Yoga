@@ -64,7 +64,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
 
         <div className="px-4">
           <div className="space-x-3 pb-4 text-3xl font-semibold">
-            Rs. {CurrentPrice}
+             {CurrentPrice} VNĐ
           </div>
           <div className="flex flex-col gap-4">
             <button
@@ -81,7 +81,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             </button>
             {(!user || !course?.studentsEnrolled.includes(user?._id)) && (
               <button onClick={handleAddToCart} className="blackButton outline-none">
-                Add to Cart
+                Thêm vào giỏ hàng
               </button>
             )}
           </div>
@@ -92,7 +92,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
 
           <div className={``}>
             <p className={`my-2 text-xl font-semibold `}>
-              Course Requirements :
+              Giảng viên được đề xuất
             </p>
             <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
               {course?.instructions?.map((item, i) => {

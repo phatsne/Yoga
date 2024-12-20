@@ -38,9 +38,9 @@ export default function MyCourses() {
     <div>
       <div className="mb-14 flex justify-between">
         {/* <div className="mb-14 flex items-center justify-between"> */}
-        <h1 className="text-4xl font-medium text-richblack-5 font-boogaloo text-center lg:text-left">My Courses</h1>
+        <h1 className="text-4xl font-medium text-richblack-5 font-boogaloo text-center lg:text-left">Khóa học của tôi</h1>
         <IconBtn
-          text="Add Course"
+          text="Thêm Khóa học"
           onclick={() => navigate("/dashboard/add-course")}
         >
           <VscAdd />

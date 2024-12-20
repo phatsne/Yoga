@@ -151,17 +151,17 @@ export default function CourseInformationForm() {
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseTitle">
-          Course Title <sup className="text-pink-200">*</sup>
+          Tên khóa học <sup className="text-pink-200">*</sup>
         </label>
         <input
           id="courseTitle"
-          placeholder="Enter Course Title"
+          placeholder="Nhập tên khóa học"
           {...register("courseTitle", { required: true })}
           className="form-style w-full"
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Course title is required
+            Vui lòng nhập tên khóa học
           </span>
         )}
       </div>
@@ -169,17 +169,17 @@ export default function CourseInformationForm() {
       {/* Course Short Description */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseShortDesc">
-          Course Short Description <sup className="text-pink-200">*</sup>
+          Mô tả khóa học <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseShortDesc"
-          placeholder="Enter Description"
+          placeholder="Nhập mô tả khóa học"
           {...register("courseShortDesc", { required: true })}
           className="form-style resize-x-none min-h-[130px] w-full ] "
         />
         {errors.courseShortDesc && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Course Description is required
+            Vui lòng nhập thông tin khóa học
           </span>
         )}
       </div>
@@ -187,12 +187,12 @@ export default function CourseInformationForm() {
       {/* Course Price */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="coursePrice">
-          Course Price <sup className="text-pink-200">*</sup>
+          Giá <sup className="text-pink-200">*</sup>
         </label>
         <div className="relative">
           <input
             id="coursePrice"
-            placeholder="Enter Course Price"
+            placeholder="Nhập giá tiền"
             {...register("coursePrice", {
               required: true,
               valueAsNumber: true,
@@ -207,7 +207,7 @@ export default function CourseInformationForm() {
         </div>
         {errors.coursePrice && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Course Price is required
+            Vui lòng nhập giá tiền 
           </span>
         )}
       </div>
@@ -215,7 +215,7 @@ export default function CourseInformationForm() {
       {/* Course Category */}
       <div className="flex flex-col space-y-2 ">
         <label className="text-sm text-richblack-5" htmlFor="courseCategory">
-          Course Category <sup className="text-pink-200">*</sup>
+          Loại khóa học <sup className="text-pink-200">*</sup>
         </label>
         <select
           {...register("courseCategory", { required: true })}
@@ -224,7 +224,7 @@ export default function CourseInformationForm() {
           className="form-style w-full cursor-pointer"
         >
           <option value="" disabled>
-            Choose a Category
+            Chọn loại khóa học phù hợp
           </option>
           {!loading &&
             courseCategories?.map((category, indx) => (
@@ -235,16 +235,16 @@ export default function CourseInformationForm() {
         </select>
         {errors.courseCategory && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Course Category is required
+            Vui lòng chọn một loại khóa học 
           </span>
         )}
       </div>
 
       {/* Course Tags */}
       <ChipInput
-        label="Tags"
+        label="Thẻ"
         name="courseTags"
-        placeholder="Enter Tags and press Enter or Comma"
+        placeholder="Gắn thẻ cho khóa học"
         register={register}
         errors={errors}
         setValue={setValue}
@@ -253,7 +253,7 @@ export default function CourseInformationForm() {
       {/* Course Thumbnail Image */}
       <Upload
         name="courseImage"
-        label="Course Thumbnail"
+        label="Ảnh minh họa cho khóa học"
         register={register}
         setValue={setValue}
         errors={errors}
@@ -263,7 +263,7 @@ export default function CourseInformationForm() {
       {/* Benefits of the course */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
-          Benefits of the course <sup className="text-pink-200">*</sup>
+          Lợi ích của khóa học <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseBenefits"
@@ -273,7 +273,7 @@ export default function CourseInformationForm() {
         />
         {errors.courseBenefits && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Benefits of the course is required
+            không để trống mô tả
           </span>
         )}
       </div>
@@ -281,7 +281,7 @@ export default function CourseInformationForm() {
       {/* Requirements/Instructions */}
       <RequirementsField
         name="courseRequirements"
-        label="Requirements/Instructions"
+        label="Gợi ý giáo viên phù hợp"
         register={register}
         setValue={setValue}
         errors={errors}
@@ -296,7 +296,7 @@ export default function CourseInformationForm() {
             className={`flex cursor-pointer items-center gap-x-2 rounded-md py-[8px] px-[20px] font-semibold
               text-richblack-900 bg-richblack-300 hover:bg-richblack-900 hover:text-richblack-300 duration-300`}
           >
-            Continue Wihout Saving
+            Tiếp tục và lưu
           </button>
         )}
         <IconBtn
