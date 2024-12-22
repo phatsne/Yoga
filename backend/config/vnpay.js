@@ -1,12 +1,16 @@
 const crypto = require('crypto');
 const querystring = require('querystring');
+require('dotenv').config(); // Load the environment variables
 
 const vnpayConfig = {
-  vnp_TmnCode: '968VTH2H', // Mã đại lý (lấy từ VNPay)
-  vnp_HashSecret: 'your_hash_6C080260KFCFT6MCVNE7K0RF15W946D3ecret', // Khóa bí mật (lấy từ VNPay)
-  vnp_Url: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html', // URL sandbox
-  vnp_ReturnUrl: 'http://localhost:3000/vnpay-return', // URL trả về sau thanh toán
+  vnp_TmnCode: process.env.VNP_TMN_CODE, // Accessing the VNPay TMN Code
+  vnp_HashSecret: process.env.VNP_HASH_SECRET, // Accessing the VNPay Hash Secret
+  vnp_Url: process.env.VNP_URL, // Accessing the VNPay URL
+  vnp_ReturnUrl: process.env.VNP_RETURN_URL, // Accessing the VNPay Return URL
 };
+
+console.log(vnpayConfig);  // Check if everything is correct
+
 
 const createVNPayPaymentUrl = (orderId, amount, orderInfo) => {
   const vnp_Params = {
