@@ -23,6 +23,9 @@ app.use(bodyParser.json());
 // Routes
 app.post('/create-payment', createPayment);
 app.get('/vnpay-return', handleVNPayReturn);
+app.post('/capture-payment', capturePayment);
+app.post('/verify-payment', verifyPayment);
+app.post('/send-payment-success-email', sendPaymentSuccessEmail);
 
 // Start server
 const PORT = 3000;
@@ -30,53 +33,11 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-// Create Payment
+/**
+ * Create Payment: Generates VNPay payment URL.
+ */
 async function createPayment(req, res) {
-  try {
-    const { orderId, amount, orderInfo } = req.body;
-
-    // Validate required fields
-    if (!orderId || !amount || !orderInfo) {
-      return res.status(400).json({ message: 'Missing required fields' });
-    }
-
-    // Generate VNPay payment URL
-    const paymentUrl = createVNPayPaymentUrl(orderId, amount, orderInfo);
-    res.status(200).json({ paymentUrl });
-  } catch (error) {
-    console.error('Error creating VNPay payment:', error);
-    res.status(500).json({ message: 'Internal Server Error', error: error.message });
-  }
-}
-
-// Handle VNPay Return
-function handleVNPayReturn(req, res) {
-  const vnp_Params = req.query;
-
-  const secureHash = vnp_Params['vnp_SecureHash'];
-  delete vnp_Params['vnp_SecureHashType'];
-  delete vnp_Params['vnp_SecureHash'];
-
-  const sortedParams = Object.keys(vnp_Params)
-    .sort()
-    .reduce((acc, key) => {
-      acc[key] = vnp_Params[key];
-      return acc;
-    }, {});
-
-  const queryString = querystring.stringify(sortedParams);
-  const hmac = crypto.createHmac('sha512', process.env.VNPAY_HASH_SECRET);
-  const hash = hmac.update(queryString).digest('hex');
-
-  if (secureHash === hash) {
-    res.json({ message: 'Payment successful', data: vnp_Params });
-  } else {
-    res.json({ message: 'Payment verification failed', data: vnp_Params });
-  }
-}
-
-// Capture Payment
-async function capturePayment(req, res) {
+  // Your payment creation logic here, similar to the capturePayment function
   const { coursesId } = req.body;
   const userId = req.user.id;
 
@@ -86,33 +47,159 @@ async function capturePayment(req, res) {
 
   try {
     let totalAmount = 0;
+    const selectedCourses = [];
 
+    // Calculate total amount
     for (const courseId of coursesId) {
       const course = await Course.findById(courseId);
       if (!course) {
-        return res.status(404).json({ success: false, message: 'Course not found' });
+        return res.status(404).json({ success: false, message: `Course not found: ${courseId}` });
       }
       if (course.studentsEnrolled.includes(userId)) {
-        return res.status(400).json({ success: false, message: 'Already enrolled' });
+        return res.status(400).json({ success: false, message: `Already enrolled in course: ${course.courseName}` });
       }
       totalAmount += course.price;
+      selectedCourses.push(course.courseName);
     }
 
-    const options = {
-      amount: totalAmount * 100,
-      currency: 'INR',
-      receipt: Math.random().toString(),
-    };
+    // Create order ID and info
+    const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+    const orderInfo = `Payment for courses: ${selectedCourses.join(', ')}`;
 
-    const paymentResponse = await instance.orders.create(options);
-    res.status(200).json({ success: true, message: paymentResponse });
+    // Create VNPay payment URL
+    const paymentUrl = createVNPayPaymentUrl(orderId, totalAmount, orderInfo);
+
+    res.status(200).json({
+      success: true,
+      paymentUrl: paymentUrl,
+      orderId: orderId,
+      amount: totalAmount,
+      courses: coursesId
+    });
+
   } catch (error) {
     console.error('Error initiating payment:', error);
-    res.status(500).json({ success: false, message: 'Could not initiate payment' });
+    res.status(500).json({
+      success: false,
+      message: 'Could not initiate payment',
+      error: error.message
+    });
   }
 }
 
-// Verify Payment
+
+/**
+ * Handle VNPay Return: Verifies the payment response from VNPay.
+ */
+async function capturePayment(req, res) {
+  const { coursesId } = req.body;
+  const userId = req.user.id;
+
+  if (!coursesId || coursesId.length === 0) {
+      return res.status(400).json({ success: false, message: 'Please provide Course IDs' });
+  }
+
+  try {
+      let totalAmount = 0;
+      const selectedCourses = [];
+
+      // Calculate total amount
+      for (const courseId of coursesId) {
+          const course = await Course.findById(courseId);
+          if (!course) {
+              return res.status(404).json({ success: false, message: `Course not found: ${courseId}` });
+          }
+          if (course.studentsEnrolled.includes(userId)) {
+              return res.status(400).json({ success: false, message: `Already enrolled in course: ${course.courseName}` });
+          }
+          totalAmount += course.price;
+          selectedCourses.push(course.courseName);
+      }
+
+      // Create order ID and info
+      const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+      const orderInfo = `Payment for courses: ${selectedCourses.join(', ')}`;
+
+      // Create VNPay payment URL
+      const paymentUrl = createVNPayPaymentUrl(orderId, totalAmount, orderInfo);
+
+      res.status(200).json({ 
+          success: true, 
+          paymentUrl: paymentUrl,
+          orderId: orderId,
+          amount: totalAmount,
+          courses: coursesId
+      });
+
+  } catch (error) {
+      console.error('Error initiating payment:', error);
+      res.status(500).json({ 
+          success: false, 
+          message: 'Could not initiate payment',
+          error: error.message 
+      });
+  }
+}
+
+/**
+* Handle VNPay Return: Process the payment response from VNPay
+*/
+async function handleVNPayReturn(req, res) {
+  try {
+      const vnp_Params = req.query;
+      const secureHash = vnp_Params['vnp_SecureHash'];
+      
+      // Remove hash params
+      delete vnp_Params['vnp_SecureHashType'];
+      delete vnp_Params['vnp_SecureHash'];
+
+      // Sort params
+      const sortedParams = Object.keys(vnp_Params)
+          .sort()
+          .reduce((acc, key) => {
+              acc[key] = vnp_Params[key];
+              return acc;
+          }, {});
+
+      // Create validation hash
+      const queryString = querystring.stringify(sortedParams);
+      const hmac = crypto.createHmac('sha512', process.env.VNPAY_HASH_SECRET);
+      const calculatedHash = hmac.update(queryString).digest('hex');
+
+      // Validate payment response
+      if (secureHash === calculatedHash) {
+          const paymentStatus = vnp_Params['vnp_ResponseCode'];
+          
+          if (paymentStatus === '00') {
+              // Payment successful
+              // Here you should:
+              // 1. Update order status
+              // 2. Enroll student in courses
+              // 3. Send confirmation email
+              
+              const orderId = vnp_Params['vnp_TxnRef'];
+              const amount = vnp_Params['vnp_Amount'] / 100; // Convert from VND cents
+              
+              await enrollStudents(coursesId, userId);
+              await sendPaymentSuccessEmail(orderId, vnp_Params['vnp_TransactionNo'], amount);
+              
+              return res.redirect(`${process.env.FRONTEND_URL}/payment/success`);
+          } else {
+              // Payment failed
+              return res.redirect(`${process.env.FRONTEND_URL}/payment/failure`);
+          }
+      } else {
+          // Invalid hash
+          return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=invalid_hash`);
+      }
+  } catch (error) {
+      console.error('Error processing VNPay return:', error);
+      return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=server_error`);
+  }
+}
+/**
+ * Verify Payment: Validates payment signature and enrolls user in courses.
+ */
 async function verifyPayment(req, res) {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature, coursesId } = req.body;
   const userId = req.user.id;
@@ -135,7 +222,9 @@ async function verifyPayment(req, res) {
   }
 }
 
-// Enroll Students
+/**
+ * Enroll Students: Enrolls user in courses and updates course progress.
+ */
 async function enrollStudents(courses, userId) {
   for (const courseId of courses) {
     const course = await Course.findByIdAndUpdate(courseId, { $push: { studentsEnrolled: userId } }, { new: true });
@@ -147,7 +236,9 @@ async function enrollStudents(courses, userId) {
   }
 }
 
-// Send Payment Success Email
+/**
+ * Send Payment Success Email: Notifies user of successful payment.
+ */
 async function sendPaymentSuccessEmail(req, res) {
   const { orderId, paymentId, amount } = req.body;
   const userId = req.user.id;
