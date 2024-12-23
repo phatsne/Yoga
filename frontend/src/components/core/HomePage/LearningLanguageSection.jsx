@@ -56,7 +56,7 @@ const HeroSection = () => {
                         onMouseOver={(e) => (e.target.style.color = "#76c776")}
                         onMouseOut={(e) => (e.target.style.color = "#90EE90")}
                     >
-                        HeathyLife
+                        EnjoyLife
                     </a>
                     .
                 </Typography>

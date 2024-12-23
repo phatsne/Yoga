@@ -19,7 +19,7 @@ function SignupForm() {
   const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT);
 
   const [formData, setFormData] = useState({
-    firstName: "",
+    firstName: "",  
     lastName: "",
     email: "",
     password: "",
@@ -86,12 +86,12 @@ function SignupForm() {
   ];
 
   return (
-    <div>
+    <div className="bg-green-50 p-10 rounded-2xl">
       {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
 
       {/* Form */}
-      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
+      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 ">
         <div className="flex gap-x-4">
           {/* First Name */}
           <label>

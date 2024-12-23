@@ -37,7 +37,7 @@ function Course_Card({ course, Height }) {
               {course?.instructor?.firstName} {course?.instructor?.lastName}
             </p>
             <div className="flex items-center gap-2">
-              <span className="text-yellow-5">{avgReviewCount || 0}</span>
+              <span className="text-green-300">{avgReviewCount || 0}</span>
               {/* <ReactStars
                 count={5}
                 value={avgReviewCount || 0}

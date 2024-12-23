@@ -9,7 +9,7 @@ const ContactFormSection = () => {
       <p className="text-center text-richblack-300 mt-3">
         Chúng tôi luôn sẵn sàng hỗ trợ các bạn 
       </p>
-      <div className="mt-12 mx-auto bg-[#eaf7fa]">
+      <div className="mt-12 mx-auto bg-green-25 p-4 rounded-2xl">
         <ContactUsForm />
       </div>
     </div>

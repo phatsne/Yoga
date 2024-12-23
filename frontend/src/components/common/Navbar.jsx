@@ -91,7 +91,7 @@ const Navbar = () => {
                 {/* logo */}
                 <Link to="/">
                     <p style={{ fontFamily: "'Pacifico', cursive", fontSize: "1.5rem", color: "black"}}>
-                        HeathyLife
+                        EnjoyLife
                     </p>
                 </Link>
 

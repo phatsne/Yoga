@@ -14,8 +14,8 @@ export const NavbarLinks = [
     title: "Liên hệ với chúng tôi",
     path: "/contact",
   },
-  {
-    title: "Công cụ tính BMI",
-    path: "/bmi"
-  }
+  // {
+  //   title: "Công cụ tính BMI",
+  //   path: "/bmi"
+  // }
 ];

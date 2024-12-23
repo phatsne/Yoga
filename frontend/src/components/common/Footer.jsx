@@ -23,7 +23,7 @@ import { ImGithub, ImLinkedin2 } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <div className="bg-richblack-800 mx-7 rounded-3xl mb-10">
+    <div className="bg-black mx-7 rounded-3xl mb-10">
       <div className="flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14">
         <div className="border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700">
 
@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
             <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
               <p style={{ fontFamily: "'Pacifico', cursive", fontSize: "1.5rem", color: "white"}}>
-                HeathyLife
+                EnjoyLife
               </p>
               <h1 className="text-richblack-50 font-semibold text-[16px]">Thông tin liên quan</h1>
               <div className="flex flex-col gap-2">
@@ -176,8 +176,8 @@ const Footer = () => {
             <div>
               <span> Made with </span>
 
-              <Link to='https://github.com/Aniruddha-Gade' target="__blank" className="text-white hover:underline mr-1">
-                Minh Tâm
+              <Link to='https://www.facebook.com/trieu.phat.729413' target="__blank" className="text-white hover:underline mr-1">
+                Phatsne
               </Link>
             </div>
             <span></span>
@@ -187,7 +187,7 @@ const Footer = () => {
             <a href="https://www.linkedin.com/in/aniruddha-gade-a48800231/" className="text-white p-3 hover:bg-richblack-700 rounded-full duration-300" target="_blank" rel="noopener noreferrer">
               <ImLinkedin2 size={17} />
             </a>
-            <a href="https://www.github.com/Aniruddha-Gade" className="text-white p-3 hover:bg-richblack-700 rounded-full duration-300" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/phatsne/Yoga" className="text-white p-3 hover:bg-richblack-700 rounded-full duration-300" target="_blank" rel="noopener noreferrer">
               <ImGithub size={17} />
             </a>
           </div>

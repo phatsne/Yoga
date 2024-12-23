@@ -98,7 +98,7 @@ function ReviewSlider() {
                   </p>
 
                   <div className="flex items-center gap-2 ">
-                    <h3 className="font-semibold text-yellow-100">
+                    <h3 className="font-semibold text-green-50">
                       {/* {isNaN(review.rating) ? "N/A" : review.rating.toFixed(1)} */}
                       {review.rating}
                     </h3>

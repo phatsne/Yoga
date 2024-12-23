@@ -23,8 +23,8 @@ import { fadeIn, } from './../components/common/motionFrameVarients';
 
 // background random images
 import backgroundImg1 from '../assets/Images/random bg img/carousel1.jpg'
-import backgroundImg2 from '../assets/Images/random bg img/carousel4.jpg'
-import backgroundImg3 from '../assets/Images/random bg img/carousel3.jpg'
+import backgroundImg2 from '../assets/Images/random bg img/carousel2.jpg'
+import backgroundImg3 from '../assets/Images/random bg img/carousel5.jpg'
 
 const randomImges = [
     backgroundImg1,
@@ -98,10 +98,10 @@ const Home = () => {
                         initial='hidden'
                         whileInView={'show'}
                         viewport={{ once: false, amount: 0.1 }}
-                        className='text-center text-3xl lg:text-4xl font-semibold mt-7'
+                        className='text-center text-3xl lg:text-4xl font-semibold mt-7 text-green-800'
                     >
-                        Tái tạo năng lượng với
-                        <HighlightText text={"HeathyLife"} />
+                        Tái tạo năng lượng với cùng với
+                        <HighlightText text={"EnjoyLife"} />
                     </motion.div>
 
                     <motion.div
@@ -235,8 +235,8 @@ const Home = () => {
                     <div className='mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
                         <div className='flex flex-col lg:flex-row gap-5 mb-10 mt-[95px]'>
                             <div className='text-3xl lg:text-4xl font-semibold w-full lg:w-[45%]'>
-                                Duy trì tập luyện đều đặn  
-                                <HighlightText text={"Nâng cao sức khỏe"} />
+                                Duy trì chế độ ăn uống hằng ngày kết hợp
+                                <HighlightText text={"Tập luyện mỗi ngày cùng với chúng tôi"} />
                             </div>
 
                             <div className='flex flex-col gap-10 w-full lg:w-[40%] items-start'>
@@ -256,14 +256,14 @@ const Home = () => {
                     </div>
                 </div>
                 {/*Section 3 */}
-                <div className='mt-14 w-11/12 w-full mx-auto py-16 max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-[#ebfff7] text-white'>
-                    <InstructorSection />
+                {/* <div className='mt-14 w-11/12 w-full mx-auto py-16 max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-[#ebfff7] text-white'> */}
+                    {/* <InstructorSection /> */}
                     {/* Reviws from Other Learner */}
                     {/* <h1 className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
                         Reviews from other learners <MdOutlineRateReview className='text-yellow-25' />
                     </h1> */}
-                    <ReviewSlider />
-                </div>
+                    {/* <ReviewSlider /> */}
+                {/* </div> */}
                 {/*Footer */}
                 <Footer />
             </div >

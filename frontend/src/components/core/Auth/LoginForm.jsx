@@ -32,9 +32,9 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className="mt-6 flex w-full flex-col gap-y-4"
+      className="mt-6 flex w-full flex-col gap-y-4 bg-green-50 p-10 rounded-2xl"
     >
-      <label className="w-full">
+      <label className="w-full ">
         <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
           Địa chỉ Email <sup className="text-pink-200">*</sup>
         </p>

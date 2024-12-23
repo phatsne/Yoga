@@ -145,7 +145,7 @@ const ContactUsForm = () => {
       <button
         disabled={loading}
         type="submit"
-        className={`rounded-md bg-[#40E0D0] px-6 py-3 text-center font-bold text-black hover:scale-95 
+        className={`rounded-md bg-green-200 px-6 py-3 text-center font-bold text-black hover:scale-95 
           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed`}
       >
         {loading ? "Đang gửi..." : "Phản hồi"}

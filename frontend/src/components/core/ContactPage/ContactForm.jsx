@@ -5,10 +5,10 @@ const ContactForm = () => {
   return (
     <div className="border border-richblack-600 text-richblack-300 rounded-xl p-7 lg:p-14 flex gap-3 flex-col">
       <h1 className="text-4xl leading-10 font-semibold text-richblack-5">
-        Got a Idea? We&apos;ve got the skills. Let&apos;s team up
+        Bạn muốn hợp tác? cùng nhau hợp tác 
       </h1>
       <p className="">
-        Tell us more about yourself and what you&apos;re got in mind.
+        CHo tôi biết thêm thông tin về bạn
       </p>
 
       <div className="mt-7">

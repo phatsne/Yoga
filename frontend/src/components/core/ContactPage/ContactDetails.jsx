@@ -6,22 +6,22 @@ import * as Icon2 from "react-icons/io5"
 const contactDetails = [
   {
     icon: "HiChatBubbleLeftRight",
-    heading: "Chat on us",
-    description: "Our friendly team is here to help.",
-    details: "info@studynotion.com",
+    heading: "Nhắn tin cho chúng tôi",
+    description: "Đội ngủ thân thiện của chúng tôi sẽ hỗ trợ bạn",
+    details: "trieucuongphat@gmail.com",
   },
-  {
-    icon: "BiWorld",
-    heading: "Visit us",
-    description: "Come and say hello at our office HQ.",
-    details:
-      "Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016",
-  },
+  // {
+  //   icon: "BiWorld",
+  //   heading: "Visit us",
+  //   description: "Come and say hello at our office HQ.",
+  //   details:
+  //     "Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016",
+  // },
   {
     icon: "IoCall",
-    heading: "Call us",
-    description: "Mon - Fri From 8am to 5pm",
-    details: "+123 456 7869",
+    heading: "Liên hệ với chúng tôi",
+    description: "Thứ hai - Thứ sáu 9.AM - 6.PM",
+    details: "0901400932",
   },
 ]
 

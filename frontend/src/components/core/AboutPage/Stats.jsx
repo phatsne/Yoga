@@ -4,9 +4,9 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import CEO from "../../../Assets/Images/CEO_MinhTam.jpg"
-import Phat from "../../../Assets/Images/CEO4.jpg"
-import CEO5 from "../../../Assets/Images/CEO5.jpg"
+import CEO from "../../../Assets/Images/team1.png"
+import Phat from "../../../Assets/Images/team3.png"
+import CEO5 from "../../../Assets/Images/team4.png"
 
 const teamMembers = [
   {

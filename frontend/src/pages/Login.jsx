@@ -1,4 +1,4 @@
-import loginImg from "../assets/Images/HeroImg.png"
+import loginImg from "../assets/Images/login.png"
 import Template from "../components/core/Auth/Template"
 import Background from "../assets/Images/Background.jpg"
 import Box from "@mui/material/Box";
@@ -10,9 +10,9 @@ function Login() {
         backgroundImage:{Background}
       }}>
           <Template
-            title="Chào mừng bạn đến với Heathylife"
+            title="Bắt đầu ngay hôm nay cùng chúng tôi"
             description1="Chăm sóc sức khỏe của bạn từ bây giờ"
-            description2="Với những khóa học giúp cơ thể bạn tái tạo lại nguồn năng lượng đã mất"
+            description2="Chào đón một ngày mới tràn đầy năng lượng"
             image={loginImg}
             formType="login"
           />
