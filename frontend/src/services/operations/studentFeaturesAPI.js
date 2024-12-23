@@ -23,15 +23,17 @@ const initiatePayment = async (token, coursesId) => {
             { Authorization: `Bearer ${token}` }
         );
 
-        if (!orderResponse || !orderResponse.data || !orderResponse.data.success) {
-            throw new Error(orderResponse?.data?.message || "Unable to create order.");
+        if (!orderResponse || !orderResponse.data) {
+            throw new Error("Invalid API response. No data returned.");
         }
-
-        const paymentUrl = orderResponse.data.message?.paymentUrl;
-
+        
+        const paymentUrl = orderResponse.data.message?.paymentUrl || orderResponse.data?.paymentUrl;
+        
         if (!paymentUrl) {
+            console.error("API response does not include paymentUrl:", JSON.stringify(orderResponse, null, 2));
             throw new Error("Could not generate VNPay payment URL.");
         }
+        
 
         return paymentUrl;
     } catch (error) {

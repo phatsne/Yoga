@@ -144,59 +144,68 @@ async function capturePayment(req, res) {
 /**
 * Handle VNPay Return: Process the payment response from VNPay
 */
+
 async function handleVNPayReturn(req, res) {
   try {
-      const vnp_Params = req.query;
-      const secureHash = vnp_Params['vnp_SecureHash'];
-      
-      // Remove hash params
-      delete vnp_Params['vnp_SecureHashType'];
-      delete vnp_Params['vnp_SecureHash'];
+    const vnp_Params = req.query;
+    const secureHash = vnp_Params['vnp_SecureHash'];
 
-      // Sort params
-      const sortedParams = Object.keys(vnp_Params)
-          .sort()
-          .reduce((acc, key) => {
-              acc[key] = vnp_Params[key];
-              return acc;
-          }, {});
+    // Xóa các tham số không cần thiết
+    delete vnp_Params['vnp_SecureHashType'];
+    delete vnp_Params['vnp_SecureHash'];
 
-      // Create validation hash
-      const queryString = querystring.stringify(sortedParams);
-      const hmac = crypto.createHmac('sha512', process.env.VNPAY_HASH_SECRET);
-      const calculatedHash = hmac.update(queryString).digest('hex');
+    // Sắp xếp các tham số
+    const sortedParams = Object.keys(vnp_Params)
+      .sort()
+      .reduce((acc, key) => {
+        acc[key] = vnp_Params[key];
+        return acc;
+      }, {});
 
-      // Validate payment response
-      if (secureHash === calculatedHash) {
-          const paymentStatus = vnp_Params['vnp_ResponseCode'];
-          
-          if (paymentStatus === '00') {
-              // Payment successful
-              // Here you should:
-              // 1. Update order status
-              // 2. Enroll student in courses
-              // 3. Send confirmation email
-              
-              const orderId = vnp_Params['vnp_TxnRef'];
-              const amount = vnp_Params['vnp_Amount'] / 100; // Convert from VND cents
-              
-              await enrollStudents(coursesId, userId);
-              await sendPaymentSuccessEmail(orderId, vnp_Params['vnp_TransactionNo'], amount);
-              
-              return res.redirect(`${process.env.FRONTEND_URL}/payment/success`);
-          } else {
-              // Payment failed
-              return res.redirect(`${process.env.FRONTEND_URL}/payment/failure`);
-          }
+    // Tạo chuỗi query
+    const queryString = querystring.stringify(sortedParams);
+
+    // Kiểm tra sự tồn tại của hash secret trong môi trường
+    const vnp_HashSecret = process.env.VNPAY_HASH_SECRET;
+    if (!vnp_HashSecret) {
+      throw new Error('VNPAY_HASH_SECRET không tồn tại trong môi trường');
+    }
+
+    // Tính toán lại hash bảo mật
+    const hmac = crypto.createHmac('sha512', vnp_HashSecret);
+    const calculatedHash = hmac.update(queryString).digest('hex');
+
+    // Kiểm tra hash
+    if (secureHash === calculatedHash) {
+      const paymentStatus = vnp_Params['vnp_ResponseCode'];
+
+      if (paymentStatus === '00') {
+        const orderId = vnp_Params['vnp_TxnRef'];
+        const amount = vnp_Params['vnp_Amount'] / 100;
+
+        const coursesId = vnp_Params['coursesId']; 
+        const userId = vnp_Params['userId']; 
+
+        if (!coursesId || !userId) {
+          return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=missing_data`);
+        }
+
+        await enrollStudents(coursesId, userId);
+        await sendPaymentSuccessEmail(orderId, vnp_Params['vnp_TransactionNo'], amount);
+
+        return res.redirect(`${process.env.FRONTEND_URL}/payment/success`);
       } else {
-          // Invalid hash
-          return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=invalid_hash`);
+        return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=payment_failed`);
       }
+    } else {
+      return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=invalid_hash`);
+    }
   } catch (error) {
-      console.error('Error processing VNPay return:', error);
-      return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=server_error`);
+    console.error('Error processing VNPay return:', error);
+    return res.redirect(`${process.env.FRONTEND_URL}/payment/failure?reason=server_error`);
   }
 }
+
 /**
  * Verify Payment: Validates payment signature and enrolls user in courses.
  */
